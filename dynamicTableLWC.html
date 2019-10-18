@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-size_2-of-2">
+        <div id='sfdctable' data-id='sfdctable' class="mainTableDiv">
+            <!-- devision that will show the dynamic content -->
+            <template iterator:it={message}>
+                {it.Name}
+            </template>
+        </div>
+    </div>
+</template>
