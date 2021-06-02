@@ -1,12 +1,17 @@
 # DynamicTable
 
-DynamicTable which works with any salesforce SObject and field configuration along with one level of parent field configuration
+DynamicTable which works with any salesforce SObject.
+Field configuration will support SOQL upto one-level parent field.
 
-Configure fieldAPI's, ObjectAPI and replaceHeaders attributes, and you are all set to go.
+Configure following attributes:
+
+1) fieldAPI's
+2) objectAPI
+3) replaceHeaders and you are all set to go.
 
 #JS
 
-All column data are readonly; First column is linked to "Done" event, which is fired on selection of record, it will pass the record details so that parent component can handle and use the event data for further processing.
+All column's are readonly; First column is linked to "Done" event, which is fired on selection of a record. It will pass the record details so that parent component can handle and use the event data for further processing.
 
 Usage,
 From a parent component add DynamicTable as a child component and pass configuring attributes, as shown below.
@@ -14,6 +19,6 @@ From a parent component add DynamicTable as a child component and pass configuri
 	<c-dynamic-table fieldapis={fieldapis} objname={objname} replaceheaders={replaceheaders}></c-dynamic-table>
 	
 	
-fork's are welcome
+Fork's are welcome.
 
 Happy Coding :)
