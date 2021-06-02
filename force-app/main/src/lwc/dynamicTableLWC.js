@@ -13,12 +13,10 @@ export default class DynamicTableLWC extends LightningElement {
             this.message = result;
             this.error = undefined;
             let dvTable = this.template.querySelector('.mainTableDiv');
-            /* */
             let objectValue   = result.sObjectData;
             let fieldList     = result.fieldList;
-            // eslint-disable-next-line no-debugger
+            
             debugger;
-            //component.set("v.searchResult",objectValue);
             /* Create Dynamic Table */
             let sObjectDataTableHeader = [];
             // Create table Header
@@ -35,7 +33,7 @@ export default class DynamicTableLWC extends LightningElement {
             table.classList.add("slds-table_bordered");
             table.classList.add("slds-table_cell-buffer");
             table.style="table-layout: fixed;width: 100%;";
-            //table.border = "1";
+            
             //Add the header row.
             let row = table.insertRow(-1);
             row.classList.add("slds-text-title_caps");
@@ -49,10 +47,8 @@ export default class DynamicTableLWC extends LightningElement {
                 div.title = sObjectDataTableHeader[i];
                 div.innerHTML = sObjectDataTableHeader[i];
                 headerCell.appendChild(div);
-                //headerCell.className='hearderClass';
                 row.appendChild(headerCell);
             }
-            //var dvTable = document.getElementById("sfdctable");
             dvTable.innerHTML = "";
             dvTable.appendChild(table);
             /* Create Dynamic Table End */
@@ -131,9 +127,6 @@ export default class DynamicTableLWC extends LightningElement {
                             
                         }
                         cell.appendChild(div);
-                        //cell.innerHTML = objectValue[j][fieldList[i].apiName];
-                        //omponent.set('v.isSending' , false);
-                        
                     }
                 }
             }
