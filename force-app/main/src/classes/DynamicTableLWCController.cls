@@ -1,7 +1,8 @@
-public class DynamicTableLWCController {
+public class DynamicTableController {
+
+
     @AuraEnabled(cacheable=true)
     public static DynamicBindingWrapper getRecords(List<String> fieldAPIs, String sObjectType, String filter,String replaceHeaders){
-        System.debug('--->'+fieldAPIs);
         DynamicBindingWrapper dynamicData = new DynamicBindingWrapper();
         List<FieldDataWrapper> wrapperList =  new List<FieldDataWrapper>();
 
@@ -12,7 +13,6 @@ public class DynamicTableLWCController {
         for(String token : replaceHeaders.split(',')){
             String[] keyValues = token.split(':');
             if(keyValues.size() > 1)
-                //wrapperList.add(new FieldDataWrapper(keyValues[1],keyValues[0],'TEXT'));
                 headerTokens.put(keyValues[0],keyValues[1]);
         }
         for(String field : fieldAPIs){
@@ -23,7 +23,7 @@ public class DynamicTableLWCController {
         }
         
         String fields = String.join(fieldAPIs,',');
-        dynamicData.sObjectData = Database.query('SELECT '+fields+' FROM '+sObjectType+' LIMIT 10');//WHERE Name LIKE \'%'+filter+'%\'
+        dynamicData.sObjectData = Database.query('SELECT '+fields+' FROM '+sObjectType+' LIMIT 10');
     	dynamicData.fieldList = wrapperList;
 
     	return dynamicData;
@@ -35,7 +35,7 @@ public class DynamicTableLWCController {
      */ 
     public class DynamicBindingWrapper{
         @AuraEnabled
-        public List<SObject> sObjectData    { get; set; }
+        public List<SObject> sObjectData        { get; set; }
         @AuraEnabled
         public List<FieldDataWrapper> fieldList { get; set; }
     }
